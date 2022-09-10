@@ -46,6 +46,7 @@ config/icon="res://asdas2022-08-17 174419.jpg"
 
 Eventos="*res://juego/Niveles/Eventos.gd"
 DatosJuego="*res://juego/autoload/DatosJuego.gd"
+DatosConfiguracion="*res://juego/autoload/DatosConfiguracion.gd"
 
 [display]
 
