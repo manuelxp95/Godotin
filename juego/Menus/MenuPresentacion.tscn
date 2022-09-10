@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://recursos/Fonts/Kenney Rocket.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://juego/Menus/godot-g15df2aa61_1920.png" type="Texture" id=2]
+[ext_resource path="res://recursos/audio/musica/Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3" type="AudioStream" id=3]
+[ext_resource path="res://recursos/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://juego/Menus/MenuPresentacion.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CenterContainer/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -789, 17 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Titulo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16, -266 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "presentacion"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CenterContainer/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -789, 17 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Titulo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16, -266 ), Vector2( 19.5, 40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -10.0, -30.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "carga_menu"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 4 )
+
+[node name="MenuPresentacion" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+menu_inicial = "res://juego/Menus/MenuInicio.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.00392157, 0.00392157, 0.113725, 1 )
+
+[node name="Titulo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -464.0
+margin_top = -266.0
+margin_right = 457.0
+margin_bottom = -166.0
+custom_fonts/font = SubResource( 1 )
+text = "GODOT GAME ENGINE"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer"]
+position = Vector2( -789, 17 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AudioStreamPlayer")
+autoplay = "presentacion"
+anims/RESET = SubResource( 2 )
+anims/presentacion = SubResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.0
+margin_top = -140.0
+margin_right = 71.0
+margin_bottom = -84.0
+custom_fonts/font = SubResource( 4 )
+text = "Iniciar"

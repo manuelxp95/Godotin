@@ -8,10 +8,44 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "AnimationTree",
+"class": "ArbolAnimacionPlayer",
+"language": "GDScript",
+"path": "res://juego/player/ArbolDeAnimacion.gd"
+}, {
+"base": "KinematicBody",
+"class": "Godotin",
+"language": "GDScript",
+"path": "res://juego/player/Godotin.gd"
+}, {
+"base": "Area",
+"class": "Moneda",
+"language": "GDScript",
+"path": "res://juego/items/MonedaDorada.gd"
+}, {
+"base": "Area",
+"class": "PortalNivel",
+"language": "GDScript",
+"path": "res://juego/Niveles/Portal.gd"
+} ]
+_global_script_class_icons={
+"ArbolAnimacionPlayer": "",
+"Godotin": "",
+"Moneda": "",
+"PortalNivel": ""
+}
+
 [application]
 
-config/name="Godotin_ParaModificar"
-config/icon="res://icon.png"
+config/name="Godotin"
+run/main_scene="res://juego/Niveles/NivelTest.tscn"
+config/icon="res://asdas2022-08-17 174419.jpg"
+
+[autoload]
+
+Eventos="*res://juego/Niveles/Eventos.gd"
+DatosJuego="*res://juego/autoload/DatosJuego.gd"
 
 [display]
 
@@ -19,6 +53,47 @@ window/size/width=960
 window/size/height=640
 window/size/resizable=false
 window/size/always_on_top=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input]
+
+saltar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mov_derecha={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mov_izquierda={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mov_adelante={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mov_atras={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+disparar={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Plataforma"
+3d_physics/layer_3="Mundo"
 
 [physics]
 
