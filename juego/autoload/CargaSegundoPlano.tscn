@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://recursos/Fonts/Kenney Rocket.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://juego/Menus/CargaSegundoPlano.gd" type="Script" id=2]
+[ext_resource path="res://juego/autoload/CargaSegundoPlano.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.0470588, 0.439216, 1 )
