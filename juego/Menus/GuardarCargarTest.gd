@@ -45,3 +45,9 @@ func _on_BotonCargarGodot_pressed()->void:
 		$TextoResultadoTRES.text="Carga existosa"
 	else:
 		$TextoResultadoTRES.text= "Error en la carga"
+
+
+func _on_BotonBorrar_pressed():
+	var borrar: GuardarCarga= GuardarCarga.new()
+	var resultado: int = borrar.borrar_datos()
+	$TextoResultadoTRES.text="%s" % resultado

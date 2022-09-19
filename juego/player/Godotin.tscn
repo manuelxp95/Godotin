@@ -1709,7 +1709,7 @@ nodes/TransicionSueloAire/position = Vector2( 1200, 480 )
 nodes/VelCorrer/node = SubResource( 29 )
 nodes/VelCorrer/position = Vector2( 640, 420 )
 nodes/output/position = Vector2( 1720, 520 )
-node_connections = [ "output", 0, "MezclaDisparar", "MezclaIdleCaminar", 0, "Animation", "MezclaIdleCaminar", 1, "VelCorrer", "MezclaDisparar", 0, "TransicionSueloAire", "MezclaDisparar", 1, "Animation 5", "MezclaSaltarCaer", 0, "Animation 3", "MezclaSaltarCaer", 1, "Animation 4", "TransicionSueloAire", 0, "MezclaIdleCaminar", "TransicionSueloAire", 1, "MezclaSaltarCaer", "VelCorrer", 0, "Animation 2" ]
+node_connections = [ "output", 0, "MezclaDisparar", "MezclaIdleCaminar", 0, "Animation", "MezclaIdleCaminar", 1, "VelCorrer", "MezclaSaltarCaer", 0, "Animation 3", "MezclaSaltarCaer", 1, "Animation 4", "TransicionSueloAire", 0, "MezclaIdleCaminar", "TransicionSueloAire", 1, "MezclaSaltarCaer", "VelCorrer", 0, "Animation 2", "MezclaDisparar", 0, "TransicionSueloAire", "MezclaDisparar", 1, "Animation 5" ]
 
 [node name="Godotin" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -1717,7 +1717,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "__editor_plugin_screen__": "3D"
 }
-velocidad_max = Vector2( 10, 14 )
+velocidad_max = Vector2( 8, 14 )
 gravedad = 1.2
 impulso = 20.0
 fuerza_salto = 5.0

@@ -73,6 +73,8 @@ func cambiar_volumen(indice_bus:int, subir:bool)->void:
 #Conexion señales internas
 
 func _on_BotonRegresar_pressed():
+	var guardar: GuardarCarga=GuardarCarga.new()
+	guardar.guardar_datos_configuracion()
 	get_tree().change_scene(menu_inicial)
 
 
@@ -87,8 +89,6 @@ func _on_OptionButton_item_selected(indice: int)-> void:
 
 func centrar_pantalla(resolucion: Vector2)->void:
 	var tamanio_pantalla:= OS.get_screen_size()
-	print(tamanio_pantalla)
-	print(resolucion)
 	OS.set_window_position((tamanio_pantalla -resolucion)*0.5)
 
 

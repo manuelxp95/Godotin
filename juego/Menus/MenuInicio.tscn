@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 menu_ajustes = "res://juego/Menus/MenuAjustes.tscn"
-nivel_inicial = "res://juego/Niveles/NivelTest.tscn"
+nivel_inicial = "res://juego/Niveles/Nivel1.tscn"
 pantalla_carga = "res://juego/Menus/PantallaCarga.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -81,6 +81,7 @@ text = "SALIR"
 [node name="BotonSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
+[connection signal="pressed" from="VBoxContainer/BotonCargar" to="." method="_on_BotonCargar_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotonNuevo" to="." method="_on_BotonNuevo_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotonOpciones" to="." method="_on_BotonOpciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotonSalir" to="." method="_on_BotonSalir_pressed"]

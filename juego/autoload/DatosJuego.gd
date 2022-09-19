@@ -4,10 +4,11 @@ extends Node
 ##Atributos
 var vidas = 3
 var monedas_oro = 0
-var nivel_actual = "res://juego/Niveles/NivelTest.tscn"#borrar
+var nivel_actual = ""
 var num_nivel_actual:int =0
 var nivel_proximo:String = ""
 var puntaje = 0
+var continue_button = false
 
 ##Metedos custom
 func reset() -> void:

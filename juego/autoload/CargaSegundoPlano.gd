@@ -38,18 +38,12 @@ func cargar_hilo(nivel: String)-> void:
 
 	barra_progreso.max_value=total_partes
 	
-	#PARA DEBUG
-	print(barra_progreso.max_value)
-	
 	var resultado:int= OK
 	var recurso: Resource =null
 	
 	while resultado == OK:
 		barra_progreso.value= recurso_interactivo.get_stage()
 		resultado= recurso_interactivo.poll()
-		
-		#TODO: DEBUG
-		print("el resutado fue:",resultado)
 		
 		if resultado != OK:
 			if resultado == ERR_FILE_EOF:

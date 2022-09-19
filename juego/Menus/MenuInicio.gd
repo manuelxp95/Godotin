@@ -11,6 +11,9 @@ func _get_configuration_warning()->String:
 		return "Chequear rutas"
 	return ""
 
+func _ready():
+	if DatosJuego.continue_button:
+		$VBoxContainer/BotonCargar.disabled=false
 
 func _on_BotonSalir_pressed():
 	get_tree().quit()
@@ -22,5 +25,11 @@ func _on_BotonOpciones_pressed():
 
 
 func _on_BotonNuevo_pressed():
+	DatosJuego.continue_button=true
 	DatosJuego.nivel_actual=nivel_inicial
+	DatosJuego.nivel_proximo=nivel_inicial
+	get_tree().change_scene(pantalla_carga)
+
+
+func _on_BotonCargar_pressed():
 	get_tree().change_scene(pantalla_carga)

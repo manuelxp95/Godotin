@@ -121,9 +121,9 @@ color = Color( 0.00392157, 0.00392157, 0.113725, 1 )
 [node name="Titulo" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -464.0
+margin_left = 16.0
 margin_top = -266.0
-margin_right = 457.0
+margin_right = 937.0
 margin_bottom = -166.0
 custom_fonts/font = SubResource( 1 )
 text = "GODOT GAME ENGINE"
@@ -145,7 +145,7 @@ texture = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-bus = "sfx"
+bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AudioStreamPlayer")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://recursos/modelos/puertas/metal.material" type="Material" id=1]
 [ext_resource path="res://juego/Niveles/Portal.gd" type="Script" id=2]
@@ -22,9 +22,25 @@ surfaces/0 = {
 radius = 0.321509
 height = 0.605398
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.328861, 0.45662 ) ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "activado"
 length = 2.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("tmpParent/doorOpen:translation")
 tracks/0/interp = 1
@@ -37,6 +53,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.15, 0 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.328861, -0.0641413 ), Vector3( 0, 0.328861, 0.45662 ), Vector3( 0, 0.328861, -0.387299 ), Vector3( 0, 0.328861, -0.0641413 ) ]
+}
 
 [node name="Portal" type="Area"]
 collision_layer = 0
@@ -46,6 +74,7 @@ proximo_nivel = "res://juego/HUD/MenuIntermedio.tscn"
 [node name="tmpParent" type="Spatial" parent="."]
 
 [node name="doorOpen" type="MeshInstance" parent="tmpParent"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0333538, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -55,6 +84,13 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "activado"
+anims/RESET = SubResource( 4 )
 anims/activado = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328861, 0.45662 )
+light_color = Color( 0.384314, 0.368627, 0.0352941, 1 )
+light_energy = 20.0
+omni_range = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
